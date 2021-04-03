@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &784941766
 Transform:
   m_ObjectHideFlags: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784941765}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 5371130576135043906}
@@ -536,7 +536,7 @@ GameObject:
   - component: {fileID: 7734414477841683393}
   - component: {fileID: 3554063547346859062}
   - component: {fileID: 760526777003823064}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shield
   m_TagString: Shield
   m_Icon: {fileID: 0}
@@ -583,7 +583,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 3da8c05672472424ba3fbb5fa0c0f14b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -611,8 +611,8 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3215706146803717824}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_Material: {fileID: 13400000, guid: ad3831c282a3a0e49829a6f92ffd34b8, type: 2}
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -875,6 +875,8 @@ GameObject:
   - component: {fileID: -763700588257307051}
   - component: {fileID: 3772083645103509238}
   - component: {fileID: 2126813648686075024}
+  - component: {fileID: 914294086}
+  - component: {fileID: 914294087}
   m_Layer: 0
   m_Name: Mannequin
   m_TagString: Player
@@ -907,7 +909,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4738286405744386552}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: ad3831c282a3a0e49829a6f92ffd34b8, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.2
@@ -928,7 +930,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!95 &-763700588257307051
 Animator:
@@ -961,7 +963,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce74162813b599478f914d49d0fb942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isJumping: 0
+  moveSpeed: 4
+  moveSpeedMax: 10
+  grounded: 0
+  canJump: 1
+  jumpTimer: 0.5
+  jumpTimeCurrent: 0
 --- !u!114 &2126813648686075024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -976,10 +983,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shieldAttached: 1
   shieldHoverSet: 0
+  canRide: 1
+  rideModeActive: 0
   mainCam: {fileID: 0}
   shieldParent: {fileID: 3921491080801620291}
   shield: {fileID: 3215706146803717824}
   footCol: {fileID: 784941767}
+--- !u!114 &914294086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4738286405744386552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 002a5fce3192b40419713f6c7f7639cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &914294087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4738286405744386552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace4ccd82f5e68245b6ade210a035038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5286273122456203237
 GameObject:
   m_ObjectHideFlags: 0

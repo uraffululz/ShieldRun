@@ -63,8 +63,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CamScript.cs" />
-    <Compile Include="Assets\PlayerMove.cs" />
+    <Compile Include="Assets\PlayerControlMaster.cs" />
+    <Compile Include="Assets\PlayerControlPlatformer.cs" />
+    <Compile Include="Assets\PlayerControlRunner.cs" />
     <Compile Include="Assets\Projectile.cs" />
+    <Compile Include="Assets\SceneManager.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\ShieldControl.cs" />
     <Compile Include="Assets\Turret.cs" />
